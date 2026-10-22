@@ -77,6 +77,11 @@ static void Blinky3_dispatch(Blinky3 * const me, SST_Evt const * const e) {
             }
             break;
         }
+        case TEST_PEND_SIG: {
+            BSP_d2on();
+            BSP_d2off();
+            break;
+        }
         case BLINKY_WORK_SIG: {
             BSP_d2on();
             SST_TimeEvt_arm(&me->te,

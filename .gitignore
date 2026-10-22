@@ -2,5 +2,7 @@
 build*/
 bin*/
 
-# test directories
-test_priv/
+# Keil
+*.scvd
+*.uvguix.*
+*.dbgconf

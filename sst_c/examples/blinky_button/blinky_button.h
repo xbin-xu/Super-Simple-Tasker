@@ -35,6 +35,7 @@ enum Signals {
     BLINKY_WORK_SIG,
     FORWARD_PRESSED_SIG,
     FORWARD_RELEASED_SIG,
+    TEST_PEND_SIG, /* injected by Blinky1 to verify scheduler locking */
     /* ... */
     MAX_SIG  /* the last signal */
 };

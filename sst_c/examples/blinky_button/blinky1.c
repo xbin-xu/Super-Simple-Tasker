@@ -75,6 +75,12 @@ static void Blinky1_dispatch(Blinky1 * const me, SST_Evt const * const e) {
                 /* just to exercise SST task scheduler lock... */
                 SST_LockKey key = SST_Task_lock(3U);
                 BSP_d5on();
+#if defined(SST_TEST_PRIORITY_CEILING) && (SST_TEST_PRIORITY_CEILING== 1)
+                static SST_Evt const TestPendEvt = { .sig = TEST_PEND_SIG };
+                if (i == 1) {
+                    SST_Task_post(AO_Blinky3, &TestPendEvt);
+                }
+#endif
                 BSP_d5off();
                 SST_Task_unlock(key);
             }
